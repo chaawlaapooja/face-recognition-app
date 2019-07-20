@@ -22,7 +22,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors())
 
-app.get('/', (req,res)=>{res.send('hi')})
+app.get('/', (req,res)=>{res.send('it is working')})
 app.post('/signin', (req,res)=>signin.handleSignIn(db,bcrypt)(req,res))
 
 app.post('/register', (req,res)=>{register.handleRegister(req,res,db,bcrypt)})
@@ -33,6 +33,6 @@ app.put('/image', (req,res)=>{image.handleImage(req,res,db)})
 
 app.post('/imageUrl', (req,res)=>{image.handleApiCall(req,res)})
 
-app.listen(4000, ()=>{
-	console.log('app is running on port 4000')
+app.listen(process.env.PORT || 4000, ()=>{
+	console.log('app is running on port ${process.env.PORT}')
 })
