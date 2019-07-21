@@ -6,11 +6,13 @@ const handleSignIn=( db, bcrypt)=>(req,res)=>{
 	db.select('email', 'hash').from('login')
 	.where('email','=', email)
 	.then(data=>{
-		bcrypt.compare(password, data[0].hash, (error,result)=>{
-			if(error)
+		//bcrypt.compare(password, data[0].hash, (error,result)=>{
+		let res = password===data[0].hash? true:false
+
+			if(!res)
 				console.log(error)
 			else{
-				if(result){
+				if(res){
 					return db.select('*').from('users')
 					.where('email','=', email)
 					.then(user=>{
@@ -27,7 +29,7 @@ const handleSignIn=( db, bcrypt)=>(req,res)=>{
 			
 		});
 		
-	})
+	//})
 	.catch(err=>res.status(400).json('wrong credentials'))
 }
 
