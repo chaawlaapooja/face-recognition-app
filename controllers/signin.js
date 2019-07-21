@@ -30,7 +30,7 @@ const handleSignIn=( db)=>(req,res)=>{
 		});
 		
 	//})
-	.catch(err=>res.status(400).json('wrong credentials'))
+	//.catch(err=>res.status(400).json('wrong credentials'))
 }
 
 module.exports={
