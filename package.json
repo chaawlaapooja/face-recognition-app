@@ -10,7 +10,6 @@
   "author": "Pooja",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "clarifai": "^2.9.0",
     "cors": "^2.8.5",
@@ -21,8 +20,8 @@
   "devDependencies": {
     "nodemon": "^1.19.1"
   },
-  "engines":{
-    "node":"12.6.0",
-    "npm":"6.9.0"
+  "engines": {
+    "node": "12.6.0",
+    "npm": "6.9.0"
   }
 }
