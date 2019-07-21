@@ -7,12 +7,12 @@ const handleSignIn=( db)=>(req,res)=>{
 	.where('email','=', email)
 	.then(data=>{
 		//bcrypt.compare(password, data[0].hash, (error,result)=>{
-		let res = password===data[0].hash? true:false
+		let resl = password===data[0].hash? true:false
 
-			if(!res)
+			if(!resl)
 				console.log(error)
 			else{
-				if(res){
+				if(resl){
 					return db.select('*').from('users')
 					.where('email','=', email)
 					.then(user=>{
